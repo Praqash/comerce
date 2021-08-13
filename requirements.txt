@@ -5,6 +5,7 @@ charset-normalizer==2.0.4
 distlib==0.3.2
 Django==3.2.6
 django-crispy-forms==1.12.0
+django-currentuser==0.5.3
 filelock==3.0.12
 gunicorn==20.1.0
 idna==3.2
