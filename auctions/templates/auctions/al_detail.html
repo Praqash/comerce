@@ -1,0 +1,152 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+ 
+
+  <div class="card mb-3" >
+    <div id = "d" class="card-body">
+      <img src= {{object.img}}  alt="..." >
+      <div class="col-md-8">
+        
+        {% if  fav  %}
+        <a  class= "badge bg-light text-dark" value = "Watchlist" href= "{% url 'watchlist' object.id %}">Unlist</a> 
+         {% else %}
+        <a  class= "badge bg-light text-dark" value = "Watchlist" href= "{% url 'watchlist' object.id %}">Watchlist</a> 
+        
+        {% endif %}
+  
+    
+        
+        {% if object.username == user %}
+        <a class = "badge bg-light text-dark" href= "{% url 'al-delete' object.id %}">Close auction!</a>
+        {% endif %}
+        <div class="card-body" style="max-width: 50%;">
+          <h6  class="card-title">Posted by: <strong>{{object.username}}</strong></h6>
+          <h6  class="card-title">Contact No: <strong>{{object.contacts}}</strong></h6>
+          <h6  class="card-title">{{object.title}}</h6>
+          <h6 class ="card-title">Category: {{object.category}}</h6>
+          <h5 class="card-title">Price: ${{object.current_price}}</h5>
+          <h6 class ="card-title">created {{object.timestamp}}</h6>
+          <h6 class ="card-title">Description: {{object.description}}</h6>
+  
+
+
+     
+    <h6 class ="card-title"><strong>{{ b.count }}</strong> bid so far...</h6>
+    {% if b.0.y == object.id %}
+  
+
+   {% if b.0.username == user %}
+   <h6 class ="card-title">You are the current bidder!</h6>
+   <h6 class ="card-title">Current bid: <strong>${{ b.0.current_bid }}</strong></h6>
+   {% else %}
+    <h6 class ="card-title"> <strong>{{ b.0.username }}</strong> is the current bidder!</h6>
+    <h6 class ="card-title">Current bid: <strong>${{ b.0.current_bid }}</strong></h6>
+    {% endif %}
+    {% endif %}
+    
+        
+         
+
+
+         </div>
+        </div>
+      </div>
+    </div>
+    
+            
+       <div class="input-group input-group-sm mb-3">
+          <div class="input-group-prepend">
+            <form action="{% url 'bidder' %}" method="post">
+                  {% csrf_token %}
+                  <input type ="hidden" name = "kyy" value= "{{object.id}}"></input>
+              <input type="number" class="form-control" name= "bid" aria-label="Small" aria-describedby="inputGroup-sizing-sm" required>
+            <br>
+              <button type='submit'  class="btn btn-primary">Bid</button> 
+          </form>
+        </div>
+    </div>
+   
+ <hr>
+  
+  
+<div>
+
+  
+  <h5></strong>Comment section...</strong></h5>
+  <h6 text-type="fade">Leave a comment</h6>
+  
+  <form action="{% url 'com'  %}" method='post'>
+       {% csrf_token %}
+
+ 
+  <input type ="hidden" name = "ky" value= "{{object.id}}"></input>
+  <div class="md-form">
+    <textarea id="form7" class="md-textarea form-control" rows="3" name ="comment" required></textarea>
+    <label for="form7"></label>
+  </div>
+  
+  <button class="btn btn-primary" type="submit">Comment</button>
+  
+  </form>
+
+</div>
+<br>
+
+
+{% for a in a %}
+{% if a == None %}
+<span class = "card-title">No comment so far...</span>
+{% elif object.id == a.i %}
+
+
+    <div id="posts"style="margin: 10px;">    
+            <div class="card mb-3" style="max-width: 100%; background-color: #f1f1f1;">
+                <div class="row g-2">
+                  <div class="col-md-4">
+                  
+                    <div class="card-body">
+                       
+                      <h5 class="card-title">Comment: {{a.comment}}</h5>
+                      <h6 class ="card-title">Posted by: {{a.username}}</h6>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+
+
+
+    
+
+ 
+{% endif %}
+{% endfor %}
+  
+  
+  
+<style>
+    
+img {
+width: 500px;
+height: 300px;
+object-fit: cover;
+object-position: center;
+}
+
+</style>
+
+<script> 
+
+</script>
+
+
+
+
+</script>
+
+
+
+
+{% endblock %}

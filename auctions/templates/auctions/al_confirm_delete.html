@@ -1,0 +1,19 @@
+{% extends "auctions/layout.html" %}
+{% load crispy_forms_tags %}
+{% block body %}
+    <h2>Delete Auction</h2>
+  
+  
+      {% csrf_token %}
+      
+      <h5>Are you sure you want to close this auction?</h5>
+      <br>
+      <form action="{% url 'delete' %}" method = "post">
+        {% csrf_token %}
+      <input type ="hidden" name = "de" value= "{{object.id}}"></input>
+      <button type = submit class="btn btn-outline-danger">Yes Close</button> 
+      <a class="btn btn-outline-secondary" href = "{% url 'al_detail' object.id %}" >Cancel</a> 
+    </form>
+    
+
+{% endblock %}

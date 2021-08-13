@@ -1,0 +1,52 @@
+{% extends "auctions/layout.html" %}
+
+
+{% block body %}
+
+
+    <h2>Closed Auctions</h2>
+
+
+    {% for cb in cb %}
+    <div id="posts"style="margin: 10px;">    
+            <div class="card mb-3" style="max-width: 100%;  background-color: #f1f1f1;">
+                <div class="row g-0" >
+                  
+                  <div class="col-md-4">
+                    <img src= {{cb.img}} alt="..." >
+                  </div>
+                
+                  
+                   
+                  <div class="col-md-8" style="cursor: pointer;">
+                    <div class="card-body-fit">
+                    
+                      <h4 class="card-title">{{cb.title}}</h4>
+                      <h4 class="card-title">Winner is <strong> {{cb.username}}</strong></h4>
+                      <h4 class="card-title">Final bid <strong>${{cb.current_bid}}</strong></h4>
+                     
+                      <h6 class="card-title"><strong>Auction Closed!!!</strong></h6>
+                 
+        
+                    
+                    </div>
+                  </a>
+                      
+                </div>
+                </div>
+                    </div>
+                  </div>
+                </div>
+              
+    
+    
+    {% endfor %}
+    <style>
+      img {
+    width: 250px;
+    height: 152px;
+    object-fit: cover;
+    }
+    </style>
+    
+   {% endblock %}

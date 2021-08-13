@@ -1,0 +1,126 @@
+{% extends "auctions/layout.html" %}
+
+
+{% block body %}
+
+
+    <h2>Active Listings</h2>
+    {% for al in al %}
+    <div id="posts"style="margin: 10px;">    
+            <div class="card mb-3" style="max-width: 100%;  background-color: #f1f1f1;">
+                <div class="row g-0" >
+                  
+                  <div class="col-md-4">
+                    <img src= {{al.img}} alt="..." >
+                  </div>
+                
+                  <a href="{% url 'al_detail' al.id %}" value = "{{al.id}}"   name = "p" type = "submit"> 
+                   
+                  <div class="col-md-8" style="cursor: pointer;">
+                    <div class="card-body">
+                    
+                      <h3 class="card-title">{{al.title}}</h3>
+                       
+                     
+                      <h6 class ="card-title">created {{al.timestamp}}</h6>
+                    </a>
+                    
+                    </div>
+                  </a>
+                      
+                </div>
+                </div>
+                    </div>
+                  </div>
+                </div>
+              
+
+
+    {% endfor %}
+    <style>
+      img {
+  width: 250px;
+  height: 152px;
+  object-fit: cover;
+}
+    </style>
+
+{% for ab in ab %}
+<div id="posts"style="margin: 10px;">    
+        <div class="card mb-3" style="max-width: 100%;  background-color: #f1f1f1;">
+            <div class="row g-0" >
+              
+              <div class="col-md-4">
+                <img src= {{ab.img}} alt="..." >
+              </div>
+            
+              <a href="{% url 'al_detail' ab.id %}">
+               
+              <div class="col-md-8" style="cursor: pointer;">
+                <div class="card-body">
+                
+                  <h3 class="card-title">{{ab.title}}</h3>
+                   
+                 
+                  <h6 class ="card-title">created {{ab.timestamp}}</h6>
+                </a>
+                
+                </div>
+              </a>
+                  
+            </div>
+            </div>
+                </div>
+              </div>
+            </div>
+          
+
+
+{% endfor %}
+<style>
+  img {
+width: 250px;
+height: 152px;
+object-fit: cover;
+}
+</style>
+
+
+
+   
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
+
+            
+      
+        
+   
+        

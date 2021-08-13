@@ -1,0 +1,60 @@
+{% extends "auctions/layout.html" %}
+
+
+{% block body %}
+<h2>Watchlist</h2>
+{% for new in new %}
+
+<div id="posts"style="margin: 10px;">  
+  
+ <div class="card mb-3" style="max-width: 100%;  background-color: #f1f1f1;">
+   
+  
+ 
+     <div class="row g-0" >
+      
+       
+       <div class="col-md-4">
+        <img src= {{new.img}} alt="..." >
+         
+       </div>
+        
+       <a href="{% url 'al_detail' new.id %}">
+ 
+       <div class="col-md-8" style="cursor: pointer;">
+         <div class="card-body">
+                     
+           <h3 class="card-title"></h3>
+          
+           <h4 class ="card-title">{{new.title}}</h4>
+           <h6 class ="card-title">{{new.timestamp}}</h6>
+         </a>
+         
+         </div>
+         
+           
+     </div>
+     </div>
+         </div>
+       </div>
+     </div>
+   
+          
+
+{% endfor %}
+    <style>
+      img {
+  width: 250px;
+  height: 152px;
+  object-fit: cover;
+}
+    </style>
+
+
+{% endblock %}
+
+
+
+
+
+

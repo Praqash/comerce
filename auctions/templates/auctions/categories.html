@@ -1,0 +1,53 @@
+{% extends "auctions/layout.html" %}
+
+
+{% block body %}
+
+
+    <h2>Categories</h2>
+    {% for auc in auc %}
+    <div id="posts"style="margin: 10px;">    
+            <div class="card mb-3" style="max-width: 100%;  background-color: #f1f1f1;">
+                <div class="row g-0" >
+                  
+                  <div class="col-md-4">
+                    
+                  </div>
+                
+                  <a href="{% url 'cat' auc.category %}">
+                   
+                  <div class="col-md-8" style="cursor: pointer;">
+                    <div class="card-body">
+                    
+                      <h3 class="card-title">{{auc.category}}</h3>
+                      
+            
+                    </a>
+                    
+                    </div>
+                  </a>
+                      
+                </div>
+                </div>
+                    </div>
+                  </div>
+                </div>
+              
+
+
+    {% endfor %}
+    <style>
+      img {
+  width: 250px;
+  height: 152px;
+  object-fit: cover;
+}
+    </style>
+
+{% endblock %}
+
+
+
+
+
+
